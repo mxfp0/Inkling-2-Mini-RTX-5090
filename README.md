@@ -11,9 +11,9 @@ image ships without RTX 5090 (SM120) kernels for an op that DSpark needs.
 | | |
 | --- | --- |
 | Context | 262,144 tokens per request, 311,557 shared KV tokens |
-| Decode | 200–305 tok/s single stream with DSpark-7 (174 tok/s with `DSPARK_TOKENS=0`) |
-| Prefill | about 5,000 tok/s at 250K tokens; about 11,000 tok/s on short prompts |
-| Concurrency | 4 scheduler slots sharing one KV pool |
+| Decode | 199 tok/s prose and 291 tok/s code, single stream with DSpark-7 |
+| Prefill | 17,000 tok/s at 4–8K tokens, 14,500 at 32K, 8,400 at 128K |
+| Concurrency | 4 scheduler slots sharing one KV pool; up to 556 (prose) and 778 (code) tok/s aggregate |
 | Features | Reasoning, `reasoning_effort`, tool calls, JSON schema, images, prefix caching, per-request metrics |
 
 ## Requirements
@@ -63,6 +63,45 @@ an image that was not built from the pinned base.
   tokens/s, DSpark acceptance) and `usage.prompt_tokens_details.cached_tokens`.
   Streaming clients get them in the final chunk with
   `stream_options: {"include_usage": true}`.
+
+## Benchmarks
+
+Measured with [sparkDash](https://github.com/MiaAI-Lab/sparkDash) on November 21,
+2026, directly against the server port with the repository defaults (DSpark-7,
+FP8 KV, four scheduler slots). Screenshots are in
+[validation/2026-11-21/sparkdash](validation/2026-11-21/sparkdash).
+
+Decode used 400 output tokens, temperature 0.7 and thinking on. Rates are tok/s.
+
+| Streams | Prose TTFT | Prose aggregate | Prose per stream | Code TTFT | Code aggregate | Code per stream |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 | 96 ms | 198.8 | 198.8 | 89 ms | 290.7 | 290.7 |
+| 2 | 245 ms | 333.0 | 175.3 | 160 ms | 547.2 | 308.1 |
+| 4 | 2.24 s | 555.6 | 143.3 | 160 ms | 708.2 | 217.2 |
+| 8 | 5.56 s | 543.4 | 140.7 | 3.51 s | 777.7 | 212.5 |
+| 16 | 4.72 s | 467.4 | 136.0 | 5.53 s | 766.1 | 209.8 |
+| 32 | 12.24 s | 494.3 | 134.0 | 9.85 s | 703.2 | 196.2 |
+
+Code decodes faster because DSpark accepts more of its draft tokens. The server
+runs four requests at a time (`MAX_NUM_SEQS=4`). Above four streams, the extra
+requests wait for a free slot, so TTFT grows and aggregate throughput stops rising.
+A separate run with `DSPARK_TOKENS=0` decoded 174 tok/s on one stream.
+
+Prefill uses the server's prompt timing, with cache hits excluded.
+
+| Context | Prompt tokens | TTFT | Prefill tok/s |
+| ---: | ---: | ---: | ---: |
+| 1K | 1,059 | 104 ms | 20,464 (low confidence) |
+| 2K | 2,081 | 168 ms | 18,129 (low confidence) |
+| 4K | 4,133 | 295 ms | 17,089 |
+| 8K | 8,227 | 537 ms | 16,982 |
+| 16K | 16,422 | 1.06 s | 16,369 |
+| 32K | 32,804 | 2.31 s | 14,516 |
+| 64K | 65,570 | 5.67 s | 11,673 |
+| 128K | 131,106 | 15.67 s | 8,396 |
+
+sparkDash marks the 1K and 2K rows as low confidence. In the smoke tests, a
+251,734-token retrieval request took 50 s end to end, about 5,000 tok/s.
 
 ## Configuration
 

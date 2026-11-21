@@ -48,6 +48,11 @@ client with SIGKILL left the container running; the next start removed it, and
 environment overrides downloaded and verified the weights as a non-root user,
 served on GPU 0 at `127.0.0.1:8031` and passed `smoke.py --checks basic`.
 
+## sparkDash benchmarks
+
+[sparkdash/](sparkdash) holds the prose decode, code decode and prefill results
+measured with sparkDash against the server port. The main README lists the numbers.
+
 ## Memory trials
 
 Each row is a startup with `--max-model-len 262144` unless noted.
