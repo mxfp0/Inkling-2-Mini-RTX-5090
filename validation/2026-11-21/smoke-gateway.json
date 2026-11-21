@@ -1,0 +1,139 @@
+{
+  "base_url": "http://127.0.0.1:8000/v1",
+  "model": "inkling-2-mini",
+  "started": "2026-11-21T10:00:11Z",
+  "checks": {
+    "basic": {
+      "passed": true,
+      "answer": "391; Canberra",
+      "reasoning_chars": 285
+    },
+    "reasoning_effort": {
+      "passed": true,
+      "none": {
+        "prompt_tokens": 27,
+        "completion_tokens": 114
+      },
+      "low": {
+        "prompt_tokens": 29,
+        "completion_tokens": 111
+      },
+      "high": {
+        "prompt_tokens": 29,
+        "completion_tokens": 197
+      }
+    },
+    "tools": {
+      "passed": true,
+      "arguments": {
+        "city": "Lisbon",
+        "unit": "c"
+      },
+      "followup": "Lisbon is sunny with a temperature of 19\u00b0C."
+    },
+    "tools_stream": {
+      "passed": true,
+      "arguments": {
+        "city": "Oslo"
+      }
+    },
+    "json_schema": {
+      "passed": true,
+      "parsed": {
+        "city": "Tokyo",
+        "country": "Japan",
+        "population_millions": 13.96
+      }
+    },
+    "vision": {
+      "passed": true,
+      "answer": "red, green, blue, yellow"
+    },
+    "retrieval": {
+      "passed": true,
+      "prompt_tokens": 251734,
+      "seconds": 50.3,
+      "found": true,
+      "answer": "QX-4471-ZETA"
+    },
+    "concurrency": {
+      "passed": true,
+      "wall_seconds": 12.4,
+      "streams": {
+        "stream0": {
+          "prompt_tokens": 31251,
+          "seconds": 3.5,
+          "found": true,
+          "answer": "CODE-03-K"
+        },
+        "stream1": {
+          "prompt_tokens": 31293,
+          "seconds": 6.0,
+          "found": true,
+          "answer": "CODE-110-K"
+        },
+        "stream2": {
+          "prompt_tokens": 31249,
+          "seconds": 8.3,
+          "found": true,
+          "answer": "CODE-217-K"
+        },
+        "stream3": {
+          "prompt_tokens": 31251,
+          "seconds": 12.4,
+          "found": true,
+          "answer": "CODE-324-K"
+        }
+      }
+    },
+    "overlap": {
+      "passed": true,
+      "wall_seconds": 54.1,
+      "peak_vram_mib": 29356,
+      "vision": {
+        "answer": "red, green, blue, yellow."
+      },
+      "short": {
+        "prompt_tokens": 31317,
+        "seconds": 6.3,
+        "found": true,
+        "answer": "SHORT-5521-K"
+      },
+      "long": {
+        "prompt_tokens": 251697,
+        "seconds": 54.1,
+        "found": true,
+        "answer": "LONG-9182-K"
+      }
+    },
+    "speed": {
+      "passed": true,
+      "samples": [
+        {
+          "completion_tokens": 1024,
+          "ttft_seconds": 0.038,
+          "decode_tokens_per_second": 201.2,
+          "mean_acceptance_length": 2.2407002188183807
+        },
+        {
+          "completion_tokens": 1024,
+          "ttft_seconds": 0.042,
+          "decode_tokens_per_second": 275.4,
+          "mean_acceptance_length": 3.1
+        },
+        {
+          "completion_tokens": 1024,
+          "ttft_seconds": 0.042,
+          "decode_tokens_per_second": 199.6,
+          "mean_acceptance_length": 2.2203023758099354
+        },
+        {
+          "completion_tokens": 1024,
+          "ttft_seconds": 0.041,
+          "decode_tokens_per_second": 304.5,
+          "mean_acceptance_length": 3.446308724832215
+        }
+      ]
+    }
+  }
+}

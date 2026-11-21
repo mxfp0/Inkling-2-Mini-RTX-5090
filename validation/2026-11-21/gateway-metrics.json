@@ -1,0 +1,228 @@
+[
+  {
+    "usage": {
+      "prompt_tokens": 1446,
+      "total_tokens": 1510,
+      "completion_tokens": 64,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "created_cache_tokens": 1408
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 62
+      }
+    },
+    "metrics": {
+      "time_to_first_token_ms": 129.94664500001818,
+      "generation_time_ms": 222.5533389996599,
+      "queue_time_ms": 0.036328000078356126,
+      "mean_itl_ms": 3.532592682534284,
+      "tokens_per_second": 181.5602919291436,
+      "speculative_decoding": {
+        "mean_acceptance_length": 3.3,
+        "draft_acceptance_rate": 0.32857142857142857,
+        "acceptance_histogram": [
+          6,
+          3,
+          4,
+          3,
+          0,
+          0,
+          2,
+          2
+        ],
+        "num_spec_steps": 20,
+        "num_accepted_draft_tokens": 46,
+        "num_draft_tokens": 140,
+        "num_spec_tokens": 7,
+        "num_verified_draft_tokens": 140,
+        "per_step_accepted": null,
+        "per_step_drafted": null,
+        "per_step_verified": null
+      }
+    },
+    "model": "inkling-2-mini",
+    "stream": false,
+    "endpoint": "chat/completions",
+    "wall_seconds": 0.3584,
+    "activity": {
+      "id": 2,
+      "tokens": {
+        "cache_tokens": 0,
+        "draft_tokens": 140,
+        "draft_acc_tokens": 46,
+        "input_tokens": 1446,
+        "output_tokens": 64,
+        "prompt_per_second": 11127.643964950366,
+        "tokens_per_second": 283.0782062546196
+      }
+    }
+  },
+  {
+    "usage": {
+      "prompt_tokens": 1446,
+      "total_tokens": 1510,
+      "completion_tokens": 64,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "created_cache_tokens": 1408
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 62
+      }
+    },
+    "metrics": {
+      "time_to_first_token_ms": 127.60187300000325,
+      "generation_time_ms": 230.65771500023402,
+      "queue_time_ms": 0.017071999991458142,
+      "mean_itl_ms": 3.661233571432286,
+      "tokens_per_second": 178.64141573220815,
+      "speculative_decoding": {
+        "mean_acceptance_length": 3.1904761904761907,
+        "draft_acceptance_rate": 0.3129251700680272,
+        "acceptance_histogram": [
+          6,
+          2,
+          7,
+          1,
+          2,
+          1,
+          0,
+          2
+        ],
+        "num_spec_steps": 21,
+        "num_accepted_draft_tokens": 46,
+        "num_draft_tokens": 147,
+        "num_spec_tokens": 7,
+        "num_verified_draft_tokens": 147
+      }
+    },
+    "model": "inkling-2-mini",
+    "stream": true,
+    "endpoint": "chat/completions",
+    "wall_seconds": 0.3672,
+    "activity": {
+      "id": 3,
+      "tokens": {
+        "cache_tokens": 0,
+        "draft_tokens": 147,
+        "draft_acc_tokens": 46,
+        "input_tokens": 1446,
+        "output_tokens": 64,
+        "prompt_per_second": 11332.122060621816,
+        "tokens_per_second": 273.1319869354298
+      }
+    }
+  },
+  {
+    "usage": {
+      "prompt_tokens": 1431,
+      "total_tokens": 1495,
+      "completion_tokens": 64,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "created_cache_tokens": 1408
+      },
+      "completion_tokens_details": null
+    },
+    "metrics": {
+      "time_to_first_token_ms": 2222.5948909999715,
+      "generation_time_ms": 101.7151080000076,
+      "queue_time_ms": 0.02068899993901141,
+      "mean_itl_ms": 1.6145255238096445,
+      "tokens_per_second": 27.535053425548067,
+      "speculative_decoding": {
+        "mean_acceptance_length": 6.3,
+        "draft_acceptance_rate": 0.7571428571428571,
+        "acceptance_histogram": [
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          7
+        ],
+        "num_spec_steps": 10,
+        "num_accepted_draft_tokens": 53,
+        "num_draft_tokens": 70,
+        "num_spec_tokens": 7,
+        "num_verified_draft_tokens": 70,
+        "per_step_accepted": null,
+        "per_step_drafted": null,
+        "per_step_verified": null
+      }
+    },
+    "model": "inkling-2-mini",
+    "stream": false,
+    "endpoint": "completions",
+    "wall_seconds": 2.3345,
+    "activity": {
+      "id": 4,
+      "tokens": {
+        "cache_tokens": 0,
+        "draft_tokens": 70,
+        "draft_acc_tokens": 53,
+        "input_tokens": 1431,
+        "output_tokens": 64,
+        "prompt_per_second": 643.842027080417,
+        "tokens_per_second": 619.3770152610495
+      }
+    }
+  },
+  {
+    "usage": {
+      "prompt_tokens": 1431,
+      "total_tokens": 1495,
+      "completion_tokens": 64,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "created_cache_tokens": 1408
+      },
+      "completion_tokens_details": null
+    },
+    "metrics": {
+      "time_to_first_token_ms": 128.47932799968476,
+      "generation_time_ms": 133.81724100008796,
+      "queue_time_ms": 0.014908000139257638,
+      "mean_itl_ms": 2.1240831904775868,
+      "tokens_per_second": 243.9986166958038,
+      "speculative_decoding": {
+        "mean_acceptance_length": 5.333333333333333,
+        "draft_acceptance_rate": 0.6190476190476191,
+        "acceptance_histogram": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          3,
+          4,
+          1
+        ],
+        "num_spec_steps": 12,
+        "num_accepted_draft_tokens": 52,
+        "num_draft_tokens": 84,
+        "num_spec_tokens": 7,
+        "num_verified_draft_tokens": 84
+      }
+    },
+    "model": "inkling-2-mini",
+    "stream": true,
+    "endpoint": "completions",
+    "wall_seconds": 0.2677,
+    "activity": {
+      "id": 5,
+      "tokens": {
+        "cache_tokens": 0,
+        "draft_tokens": 84,
+        "draft_acc_tokens": 52,
+        "input_tokens": 1431,
+        "output_tokens": 64,
+        "prompt_per_second": 11137.978554834215,
+        "tokens_per_second": 470.79135340982396
+      }
+    }
+  }
+]

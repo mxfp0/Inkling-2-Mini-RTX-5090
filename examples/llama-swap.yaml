@@ -1,0 +1,16 @@
+# Merge into your llama-swap config.yaml and replace /path/to with this checkout.
+# Docker's --rm removes the container after cmdStop; serve.sh also removes
+# containers left behind by a killed client on the next start.
+healthCheckTimeout: 900
+models:
+  inkling-2-mini:
+    name: Inkling 2 Mini NVFP4 + DSpark-7
+    cmd: env PORT=${PORT} /path/to/Inkling-2-Mini-RTX-5090/serve.sh
+    cmdStop: docker stop -t 30 inkling-2-mini-${PORT}-${PID}
+    proxy: http://127.0.0.1:${PORT}
+    checkEndpoint: /health
+    capabilities:
+      in: [text, image]
+      out: [text]
+      tools: true
+      context: 262144
